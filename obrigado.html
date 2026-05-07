@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Obrigado — Cais Investimentos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Download automático da planilha ao entrar na página -->
+  <script>
+    window.addEventListener('load', function () {
+      setTimeout(function () {
+        var link = document.createElement('a');
+        link.href = 'https://docs.google.com/spreadsheets/d/1fvCu89WgR8dMSFck2By3Yc_aZTjnNAy5/export?format=xlsx';
+        link.download = 'Planilha-Financeira-Cais.xlsx';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }, 800);
+    });
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --azul-profundo:    #081421;
+      --azul-corporativo: #003b5c;
+      --azul-medio:       #346f93;
+      --ouro:             #d9bd7e;
+      --branco:           #fcfcfc;
+      --border:           #e8e8e4;
+      --muted:            #5a6170;
+      --radius:           4px;
+    }
+    body {
+      background: var(--branco);
+      color: var(--azul-profundo);
+      font-family: 'Outfit', sans-serif;
+      font-weight: 400;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    nav {
+      border-bottom: 1px solid var(--border);
+      padding: 0 5rem; height: 68px;
+      display: flex; align-items: center;
+    }
+    @media (max-width: 700px) { nav { padding: 0 1.5rem; } }
+    .wordmark { font-size: 1rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--azul-profundo); }
+    .wordmark em { font-style: italic; font-weight: 300; color: var(--ouro); letter-spacing: 0.12em; }
+
+    /* MAIN */
+    main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 5rem 1.5rem;
+    }
+
+    .obrigado-card {
+      max-width: 560px;
+      width: 100%;
+      text-align: center;
+      animation: fadeUp 0.8s ease both;
+    }
+
+    /* Ícone de check */
+    .check-circle {
+      width: 72px; height: 72px;
+      border-radius: 50%;
+      background: rgba(217,189,126,0.12);
+      border: 1.5px solid var(--ouro);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 2.5rem;
+    }
+    .check-circle svg { width: 30px; height: 30px; }
+
+    .label-tag {
+      font-size: 0.68rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--ouro); margin-bottom: 1rem;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+    }
+    .label-tag::before, .label-tag::after {
+      content: ''; width: 20px; height: 1px; background: var(--ouro);
+    }
+
+    h1 {
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 600;
+      color: var(--azul-profundo);
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+    }
+    h1 em { font-style: italic; font-weight: 300; color: var(--ouro); }
+
+    .sub {
+      font-size: 0.95rem; font-weight: 300;
+      color: var(--muted); line-height: 1.7;
+      margin-top: 1rem; margin-bottom: 2.8rem;
+    }
+
+    /* Botões */
+    .actions {
+      display: flex; flex-direction: column; gap: 1rem; align-items: center;
+    }
+
+    .btn-download {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--azul-profundo); color: var(--branco);
+      border: none; border-radius: var(--radius);
+      padding: 14px 32px;
+      font-family: 'Outfit', sans-serif; font-size: 0.82rem; font-weight: 600;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      text-decoration: none; cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      width: 100%; justify-content: center;
+    }
+    .btn-download:hover { background: var(--azul-corporativo); transform: translateY(-1px); }
+    .btn-download svg { width: 16px; height: 16px; flex-shrink: 0; }
+
+    .btn-linktree {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: transparent; color: var(--azul-profundo);
+      border: 1.5px solid var(--border); border-radius: var(--radius);
+      padding: 13px 32px;
+      font-family: 'Outfit', sans-serif; font-size: 0.82rem; font-weight: 500;
+      letter-spacing: 0.04em;
+      text-decoration: none; cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+      width: 100%; justify-content: center;
+    }
+    .btn-linktree:hover { border-color: var(--ouro); background: rgba(217,189,126,0.05); }
+    .btn-linktree svg { width: 16px; height: 16px; flex-shrink: 0; }
+
+    /* Nota de download automático */
+    .auto-note {
+      margin-top: 2rem;
+      font-size: 0.72rem; color: var(--muted); font-weight: 300;
+      display: flex; align-items: center; justify-content: center; gap: 6px;
+    }
+    .auto-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--ouro); animation: pulse 2s ease infinite; }
+    @keyframes pulse {
+      0%,100% { opacity:1; transform:scale(1); }
+      50%      { opacity:0.4; transform:scale(0.7); }
+    }
+
+    /* Divisor */
+    .divider { width: 100%; height: 1px; background: var(--border); margin: 2.5rem 0; }
+
+    /* Contato */
+    .contact-note {
+      font-size: 0.82rem; color: var(--muted); font-weight: 300; line-height: 1.7;
+    }
+    .contact-note strong { color: var(--azul-profundo); font-weight: 600; }
+
+    footer {
+      background: var(--azul-profundo); padding: 1.6rem 5rem;
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
+    }
+    @media (max-width: 700px) { footer { padding: 1.6rem 1.5rem; flex-direction: column; align-items: flex-start; } }
+    .footer-mark { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(252,252,252,0.9); }
+    .footer-mark em { font-style: italic; font-weight: 300; color: var(--ouro); }
+    .footer-copy { font-size: 0.68rem; color: rgba(252,252,252,0.3); font-weight: 300; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="wordmark">CAIS <em>Investimentos</em></div>
+  </nav>
+
+  <main>
+    <div class="obrigado-card">
+
+      <div class="check-circle">
+        <svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6 15.5l6.5 6.5L24 9" stroke="#d9bd7e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+
+      <div class="label-tag">Tudo certo</div>
+
+      <h1>Obrigado por baixar<br/>nossa <em>planilha.</em></h1>
+
+      <p class="sub">
+        Seu download deve começar automaticamente. Caso não comece, use o botão abaixo.
+        Acesse nosso Linktree para conhecer mais sobre a Cais e conversar com nossos assessores.
+      </p>
+
+      <div class="actions">
+        <a
+          class="btn-download"
+          href="https://docs.google.com/spreadsheets/d/1fvCu89WgR8dMSFck2By3Yc_aZTjnNAy5/export?format=xlsx"
+          download="Planilha-Financeira-Cais.xlsx"
+        >
+          <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 1v9M4.5 6.5L8 10l3.5-3.5M2 12h12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Baixar planilha agora
+        </a>
+
+        <a
+          class="btn-linktree"
+          href="https://linktr.ee/caisinvestimentos"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 8a2 2 0 1 0 4 0A2 2 0 0 0 6 8zM8 10v4M8 2v2M2 8H1M15 8h-1M3.5 3.5l.7.7M11.8 11.8l.7.7M3.5 12.5l.7-.7M11.8 4.2l.7-.7" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          </svg>
+          Conheça mais — linktr.ee/caisinvestimentos
+        </a>
+      </div>
+
+      <div class="auto-note">
+        <span class="auto-dot"></span>
+        Download iniciando automaticamente...
+      </div>
+
+      <div class="divider"></div>
+
+      <p class="contact-note">
+        Nossa equipe de assessores está pronta para te ajudar.<br/>
+        <strong>Entre em contato pelo Linktree</strong> e descubra como a Cais pode
+        te ajudar a investir com mais clareza e segurança.
+      </p>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-mark">CAIS <em>Investimentos</em></div>
+    <div class="footer-copy">© 2025 Cais Investimentos. Todos os direitos reservados.</div>
+  </footer>
+
+</body>
+</html>
